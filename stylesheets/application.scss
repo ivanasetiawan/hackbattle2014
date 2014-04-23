@@ -1,10 +1,12 @@
-@charset "utf-8"
+@import "compass/css3";
 
+@import "shared/rem";
+@import "shared/mixins";
+@import "shared/keyframes";
 
-// Module dependencies
-// ------------------------------------------------
-// TODO: Nuke this section & import dependencies in modules where required (using import-once)
-// import-once currently isn't working with globbing https://github.com/chriseppstein/compass/issues/1529
+@import "core/variables";
+@import "core/base";
+@import "core/utilities";
+@import "core/grid";
 
-// Vendor mixin/function libraries
-@import "susy"
+@import "components/users";

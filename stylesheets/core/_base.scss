@@ -1,0 +1,115 @@
+html {
+	font-size: $font-base-size-xs;
+	@media (min-width: $screen-md) { font-size: $font-base-size-md; }
+	@media (min-width: $screen-lg) { font-size: $font-base-size-lg; }
+}
+
+body {
+	margin: 0;
+	font-family: $font-sans;
+	font-weight: $font-weight-normal;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+	background-color: #eaedee;
+}
+
+img {
+	border: 0;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	font-family: $font-serif;
+	font-weight: normal;
+	line-height: 1.25;
+}
+
+h1, .h1 {
+	@include rem(margin-bottom, 1rem);
+	font-size: 28px;
+	@media (min-width: $screen-md) { font-size: 32px; }
+	@media (min-width: $screen-lg) { font-size: 36px; }
+	//text-transform: uppercase;
+}
+
+h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	margin-bottom: .5em;
+	& + p,
+	& + ol,
+	& + ul {
+		margin-top: 0;
+	}
+}
+
+h2, .h2 {
+	font-size: 22px;
+	@media (min-width: $screen-md) { font-size: 24px; }
+	@media (min-width: $screen-lg) { font-size: 26px; }
+	//text-transform: uppercase;
+}
+
+h3, .h3 {
+	font-size: 20px;
+	@media (min-width: $screen-md) { font-size: 22px; }
+	@media (min-width: $screen-sm) { font-size: 24px; }
+}
+
+h4, .h4 {
+	font-size: 16px;
+	@media (min-width: $screen-md) { font-size: 18px; }
+	@media (min-width: $screen-sm) { font-size: 20px; }
+}
+
+h5, .h5, h6, .h6 {
+	@include rem(font-size, 1rem);
+}
+
+a {
+	text-decoration: none;
+	color: $color-blue;
+	&:hover { color: darken($color-blue, 10); }
+}
+
+ol,
+ul {
+	@include rem(margin-top, 1rem);
+	@include rem(margin-bottom, 1rem);
+	@include rem(padding-left, 1.5rem);
+}
+
+ul {
+	list-style-type: square;
+}
+
+li {
+	@include rem(margin-bottom, .75rem);
+}
+
+.site-main {
+	overflow: hidden;
+	@media (max-width: $screen-sm-max) {
+		display: flex;
+		flex-direction: column;
+	}
+	&.wrapper { padding-bottom: $gutter-lg; }
+}
+
+.site-main__main {
+	overflow: hidden;
+	@media (max-width: $screen-sm-max) { order: 1; }
+	@media (min-width: $screen-sm) { background-color: $color-white; }
+}
+
+.main__inner {
+	@media (min-width: $screen-sm) { padding: $gutter-sm; }
+}
+
+// .site-main__aside {
+// 	@media (min-width: $screen-md) {
+// 		padding-bottom: $gutter-lg;
+// 		float: right;
+// 		width: 366px; // fixed format; site__main is fluid
+// 		&.is-left { float: left; }
+// 	}
+// 	@media (max-width: $screen-sm-max) { order: 2; }
+// }
+

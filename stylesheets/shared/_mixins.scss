@@ -1,0 +1,35 @@
+// "Private" function to calculate color
+@function _returnColor($color-code, $type) {
+
+	$red: 			red($color-code);
+	$green: 		green($color-code);
+	$blue: 			blue($color-code);
+	$colorPart: 	1 !default;
+
+	@if ($type == 'medium') {
+		$colorPart: 	0.7;
+	} @else if ($type == 'light') {
+		$colorPart: 	0.3;
+	} @else if ($type == 'extra-light') {
+		$colorPart: 	0.15;
+	}
+
+	$whitePart: 	1 - $colorPart;
+	$newRed: 		$colorPart * $red + $whitePart * 255;
+	$newGreen: 		$colorPart * $green + $whitePart * 255;
+	$newBlue: 		$colorPart * $blue + $whitePart * 255;
+
+	@return rgb(round($newRed), round($newGreen), round($newBlue));
+}
+
+// Shorthand functions for returnColor
+@function returnMediumColor($color-code) { @return _returnColor($color-code, 'medium'); }
+@function returnLightColor($color-code) { @return _returnColor($color-code, 'light'); }
+@function returnExtraLightColor($color-code) { @return _returnColor($color-code, 'extra-light'); }
+
+
+// Little mixin to type less
+@mixin animation($property) {
+	-webkit-animation: $property;
+     animation: $property;
+}
